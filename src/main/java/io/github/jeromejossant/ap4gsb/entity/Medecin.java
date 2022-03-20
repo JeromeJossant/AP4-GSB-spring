@@ -1,8 +1,12 @@
 package io.github.jeromejossant.ap4gsb.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table
@@ -72,6 +76,7 @@ public class Medecin {
         this.tel = tel;
     }
 
+    @JsonBackReference
     public Departement getDepartement() {
         return departement;
     }
@@ -80,6 +85,7 @@ public class Medecin {
         this.departement = departement;
     }
 
+    @JsonBackReference
     public SpecialiteComplementaire getSpecialiteComplementaire() {
         return specialiteComplementaire;
     }

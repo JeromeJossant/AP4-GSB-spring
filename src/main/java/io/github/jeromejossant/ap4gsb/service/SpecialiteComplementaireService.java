@@ -1,6 +1,5 @@
 package io.github.jeromejossant.ap4gsb.service;
 
-import io.github.jeromejossant.ap4gsb.entity.Medecin;
 import io.github.jeromejossant.ap4gsb.entity.SpecialiteComplementaire;
 import io.github.jeromejossant.ap4gsb.repository.SpecialiteComplementaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;

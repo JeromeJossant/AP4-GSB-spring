@@ -1,6 +1,5 @@
 package io.github.jeromejossant.ap4gsb.service;
 
-import io.github.jeromejossant.ap4gsb.entity.Departement;
 import io.github.jeromejossant.ap4gsb.entity.Pays;
 import io.github.jeromejossant.ap4gsb.repository.PaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
