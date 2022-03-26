@@ -1,6 +1,7 @@
 package io.github.jeromejossant.ap4gsb.service;
 
 import io.github.jeromejossant.ap4gsb.entity.Medecin;
+import io.github.jeromejossant.ap4gsb.projection.MedecinCollectionView;
 import io.github.jeromejossant.ap4gsb.repository.MedecinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +18,15 @@ public class MedecinService {
         this.medecinRepository = medecinRepository;
     }
 
-    public List<Medecin> findAll() {
-        return this.medecinRepository.findAll();
+    public List<MedecinCollectionView> findAll() {
+        return this.medecinRepository.findAllMedecinBy();
     }
 
-    public Optional<Medecin> findById(Long id) {
-        return this.medecinRepository.findById(id);
+    public Optional<MedecinCollectionView> findById(Long id) {
+        return this.medecinRepository.findMedecinById(id);
     }
 
-    public List<Medecin> findAllByNom(String nom) {
+    public List<MedecinCollectionView> findAllByNom(String nom) {
         return this.medecinRepository.findAllByNomContaining(nom);
     }
 }

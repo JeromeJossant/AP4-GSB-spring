@@ -1,6 +1,7 @@
 package io.github.jeromejossant.ap4gsb.controller;
 
 import io.github.jeromejossant.ap4gsb.entity.Medecin;
+import io.github.jeromejossant.ap4gsb.projection.MedecinCollectionView;
 import io.github.jeromejossant.ap4gsb.service.MedecinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,13 +22,13 @@ public class MedecinController {
     }
 
     @GetMapping
-    public List<Medecin> getAll(@RequestParam(required = false, name = "nom", defaultValue = "") String nom) {
+    public List<MedecinCollectionView> getAll(@RequestParam(required = false, name = "nom", defaultValue = "") String nom) {
         return this.medecinService.findAllByNom(nom);
     }
 
     @GetMapping("/{id}")
-    public Medecin getById(@PathVariable("id") Long id) {
-        Optional<Medecin> medecinOptional = this.medecinService.findById(id);
+    public MedecinCollectionView getById(@PathVariable("id") Long id) {
+        Optional<MedecinCollectionView> medecinOptional = this.medecinService.findById(id);
         if (medecinOptional.isPresent()) {
             return medecinOptional.get();
         } else {

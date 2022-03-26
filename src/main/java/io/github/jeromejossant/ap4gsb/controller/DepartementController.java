@@ -1,6 +1,7 @@
 package io.github.jeromejossant.ap4gsb.controller;
 
 import io.github.jeromejossant.ap4gsb.entity.Departement;
+import io.github.jeromejossant.ap4gsb.projection.DepartementCollectionnVIew;
 import io.github.jeromejossant.ap4gsb.service.DepartementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,13 +26,14 @@ public class DepartementController {
     }
 
     @GetMapping
-    public List<Departement> getAll() {
+    public List<DepartementCollectionnVIew> getAll() {
         return this.departementService.findAll();
     }
 
+
     @GetMapping("/{id}")
-    public Departement getById(@PathVariable("id") Long id) {
-        Optional<Departement> departementOptional = this.departementService.findById(id);
+    public DepartementCollectionnVIew getById(@PathVariable("id") Long id) {
+        Optional<DepartementCollectionnVIew> departementOptional = this.departementService.findById(id);
         if (departementOptional.isPresent()) {
             return departementOptional.get();
         } else {

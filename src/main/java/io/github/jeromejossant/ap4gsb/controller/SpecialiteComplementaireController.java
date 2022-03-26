@@ -2,6 +2,7 @@ package io.github.jeromejossant.ap4gsb.controller;
 
 
 import io.github.jeromejossant.ap4gsb.entity.SpecialiteComplementaire;
+import io.github.jeromejossant.ap4gsb.projection.SpecialiteComplementaireCollectionView;
 import io.github.jeromejossant.ap4gsb.service.SpecialiteComplementaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,13 +23,13 @@ public class SpecialiteComplementaireController {
     }
 
     @GetMapping
-    public List<SpecialiteComplementaire> getAll(@RequestParam(required = false, name = "libelle", defaultValue = "") String libelle) {
-        return this.specialiteComplementaireService.findAllByLibelle(libelle);
+    public List<SpecialiteComplementaireCollectionView> getAll() {
+        return this.specialiteComplementaireService.findAll();
     }
 
     @GetMapping("/{id}")
-    public SpecialiteComplementaire getById(@PathVariable("id") Long id) {
-        Optional<SpecialiteComplementaire> specialaiteComplementaireOptional = this.specialiteComplementaireService.findById(id);
+    public SpecialiteComplementaireCollectionView getById(@PathVariable("id") Long id) {
+        Optional<SpecialiteComplementaireCollectionView> specialaiteComplementaireOptional = this.specialiteComplementaireService.findById(id);
         if (specialaiteComplementaireOptional.isPresent()) {
             return specialaiteComplementaireOptional.get();
         } else {

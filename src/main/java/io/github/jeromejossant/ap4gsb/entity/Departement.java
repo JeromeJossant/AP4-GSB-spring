@@ -54,7 +54,6 @@ public class Departement {
         this.nom = nom;
     }
 
-    @JsonBackReference
     public Pays getPays() {
         return pays;
     }
@@ -63,7 +62,6 @@ public class Departement {
         this.pays = pays;
     }
 
-    @JsonManagedReference
     public Set<Medecin> getMedecins() {
         return medecins;
     }

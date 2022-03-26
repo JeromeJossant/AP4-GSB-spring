@@ -44,7 +44,6 @@ public class SpecialiteComplementaire {
         this.libelle = libelle;
     }
 
-    @JsonManagedReference
     public List<Medecin> getMedecins() {
         return medecins;
     }

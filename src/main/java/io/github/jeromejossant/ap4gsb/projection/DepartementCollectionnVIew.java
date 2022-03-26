@@ -1,6 +1,8 @@
 package io.github.jeromejossant.ap4gsb.projection;
 
-public interface DepartementView {
+import java.util.Set;
+
+public interface DepartementCollectionnVIew {
 
     Long getId();
 
@@ -9,4 +11,6 @@ public interface DepartementView {
     String getNum();
 
     PaysView getPays();
+
+    Set<MedecinView> getMedecins();
 }

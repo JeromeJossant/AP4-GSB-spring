@@ -20,7 +20,7 @@ public class Medecin {
     private String tel;
     @ManyToOne
     private Departement departement;
-    @ManyToOne
+    @ManyToOne(optional = true)
     private SpecialiteComplementaire specialiteComplementaire;
 
     public Medecin(Long id, String nom, String prenom, String adresse, String tel, Departement departement, SpecialiteComplementaire specialiteComplementaire) {
@@ -76,7 +76,6 @@ public class Medecin {
         this.tel = tel;
     }
 
-    @JsonBackReference
     public Departement getDepartement() {
         return departement;
     }
@@ -85,7 +84,6 @@ public class Medecin {
         this.departement = departement;
     }
 
-    @JsonBackReference
     public SpecialiteComplementaire getSpecialiteComplementaire() {
         return specialiteComplementaire;
     }

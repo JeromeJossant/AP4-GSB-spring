@@ -1,8 +1,8 @@
 package io.github.jeromejossant.ap4gsb.projection;
 
-public interface PaysView {
+public interface SpecialiteComplementaireView {
 
     Long getId();
 
-    String getNom();
+    String getLibelle();
 }

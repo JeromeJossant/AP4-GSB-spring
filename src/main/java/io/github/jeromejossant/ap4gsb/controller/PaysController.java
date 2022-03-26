@@ -1,6 +1,7 @@
 package io.github.jeromejossant.ap4gsb.controller;
 
 import io.github.jeromejossant.ap4gsb.entity.Pays;
+import io.github.jeromejossant.ap4gsb.projection.PaysCollectionView;
 import io.github.jeromejossant.ap4gsb.service.PaysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,13 +25,13 @@ public class PaysController {
     }
 
     @GetMapping
-    public List<Pays> getAll() {
+    public List<PaysCollectionView> getAll() {
         return this.paysService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Pays getById(@PathVariable("id") Long id) {
-        Optional<Pays> paysOptional = this.paysService.findById(id);
+    public PaysCollectionView getById(@PathVariable("id") Long id) {
+        Optional<PaysCollectionView> paysOptional = this.paysService.findById(id);
         if (paysOptional.isPresent()) {
             return paysOptional.get();
         } else {

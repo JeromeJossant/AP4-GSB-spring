@@ -1,6 +1,7 @@
 package io.github.jeromejossant.ap4gsb.service;
 
 import io.github.jeromejossant.ap4gsb.entity.SpecialiteComplementaire;
+import io.github.jeromejossant.ap4gsb.projection.SpecialiteComplementaireCollectionView;
 import io.github.jeromejossant.ap4gsb.repository.SpecialiteComplementaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,17 +19,12 @@ public class SpecialiteComplementaireService {
         this.specialiteComplementaireRepository = specialiteComplementaireRepository;
     }
 
-    public List<SpecialiteComplementaire> findAll() {
-        return this.specialiteComplementaireRepository.findAll();
+    public List<SpecialiteComplementaireCollectionView> findAll() {
+        return this.specialiteComplementaireRepository.findAllSpecialiteComplementaireBy();
     }
 
-    public Optional<SpecialiteComplementaire> findById(Long id) {
-        return this.specialiteComplementaireRepository.findById(id);
+    public Optional<SpecialiteComplementaireCollectionView> findById(Long id) {
+        return this.specialiteComplementaireRepository.findSpecialiteComplementaireById(id);
     }
-
-    public List<SpecialiteComplementaire> findAllByLibelle(String libelle) {
-        return this.specialiteComplementaireRepository.findAllByLibelleContaining(libelle);
-    }
-
 
 }

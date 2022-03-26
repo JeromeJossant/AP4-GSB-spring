@@ -1,6 +1,7 @@
 package io.github.jeromejossant.ap4gsb.service;
 
 import io.github.jeromejossant.ap4gsb.entity.Pays;
+import io.github.jeromejossant.ap4gsb.projection.PaysCollectionView;
 import io.github.jeromejossant.ap4gsb.repository.PaysRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,11 @@ public class PaysService {
         this.paysRepository = paysRepository;
     }
 
-    public List<Pays> findAll() {
-        return this.paysRepository.findAll();
+    public List<PaysCollectionView> findAll() {
+        return this.paysRepository.findAllPaysBy();
     }
 
-    public Optional<Pays> findById(Long id) {
-        return this.paysRepository.findById(id);
+    public Optional<PaysCollectionView> findById(Long id) {
+        return this.paysRepository.findPaysById(id);
     }
 }
