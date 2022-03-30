@@ -1,6 +1,5 @@
 package io.github.jeromejossant.ap4gsb.service;
 
-import io.github.jeromejossant.ap4gsb.entity.Departement;
 import io.github.jeromejossant.ap4gsb.projection.DepartementCollectionnVIew;
 import io.github.jeromejossant.ap4gsb.repository.DepartementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class DepartementService {
     }
 
     public List<DepartementCollectionnVIew> findAll() {
-        return this.departementRepository.findAllDepartementBy();
+        return this.departementRepository.findByOrderByNumAsc();
     }
 
     public Optional<DepartementCollectionnVIew> findById(Long id) {

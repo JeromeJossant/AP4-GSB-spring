@@ -15,4 +15,7 @@ public interface DepartementRepository extends JpaRepository<Departement, Long> 
     List<DepartementCollectionnVIew> findAllDepartementBy();
 
     Optional<DepartementCollectionnVIew> findDepartementById(Long id);
+
+    List<DepartementCollectionnVIew> findByOrderByNumAsc();
+
 }
